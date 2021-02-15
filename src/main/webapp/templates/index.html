@@ -1,10 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="style.css" type="text/css" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
-    <title>Main page</title>
+    <title>Торговая площадка</title>
+    <style>
+        body {
+            margin:50px;
+            background: #e8fcfa;
+        }
+
+        nav{
+            display: block;
+            margin: 0 auto 30px;
+        }
+
+        .menu ul {
+            padding: 0 0;
+            background: #C4DFE6;
+        }
+        .menu  a {
+            padding: 1em;
+            background: #C4DFE6;
+            border-right: 1px solid #66A5AD;
+            color: #07575B;
+            text-decoration: none;
+        }
+        .menu  a:hover {
+            background: #66A5AD;
+            text-decoration: none;}
+
+        .menu  li {
+            display: inline;
+        }
+
+        a{
+            line-height:70px;
+            text-decoration: none;
+            font-family: TimesNewRoman;
+            transition: .5s linear;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0 auto;
+        }
+
+
+        header {
+            display: flex;
+            align-items: center;
+        }
+
+        div.main{
+            display: flex;
+            flex-direction: column;
+            min-height: 90vh;
+        }
+
+
+
+
+        .footer {
+            height: 50px;
+            background: #66A5AD;
+            margin-top: auto;
+            align-content: center;
+        }
+    </style>
 </head>
 <body>
-<h1>Hello world!!!</h1>
+<div class="main">
+    <header>
+
+        <a class="menu" href="/">
+            <img src="https://c0.klipartz.com/pngpicture/761/296/gratis-png-tablon-de-anuncios-madera.png" height="45" width="90" hspace="10" vspace="10" align="center">
+        </a>
+
+        <h1>Store</h1>
+
+
+
+        <nav class="menu">
+            <ul class="menu">
+                <li class="menu">
+                    <a class="menu" href="/">Главная</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="">Категории</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="" >Регистрация</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="" >Авторизация</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="">Профиль</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="">Мои объявления</a>
+                </li>
+            </ul>
+
+        </nav>
+
+    </header>
+    <main>
+        <section>
+            <form action=""  method="post" class="">
+
+                <div class="form-group">
+                    <label for="formGroupExampleInput1">Введите наименование товара</label>
+                    <input type="text"  class="form-control" id="formGroupExampleInput1" />
+                </div>
+                <br>
+
+                <button type="submit" class="btn btn-outline-dark">
+                    Поиск
+                </button>
+
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <br>
+        <p align="center" >©Проект Женя&Надя, Минск 2021</p><br>
+    </footer>
+</div>
 </body>
 </html>
