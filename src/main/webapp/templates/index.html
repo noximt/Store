@@ -2,18 +2,26 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="style.css" type="text/css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 <head>
     <meta charset="UTF-8">
     <title>Торговая площадка</title>
 <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
     body {
-        margin:50px;
-        background: #e8fcfa;
+        background: #f0fafa;
+        width: 100vw;
     }
 
     nav{
         display: block;
-        margin: 0 auto 30px;
+        margin: 0 auto;
     }
 
     .menu ul {
@@ -51,13 +59,29 @@
     header {
         display: flex;
         align-items: center;
+        background: #C4DFE6;
+        width: 100%;
+        padding: 10px 10px 10px 10px;
+
     }
 
-    div.main{
+    div.wrapper{
         display: flex;
         flex-direction: column;
-        min-height: 90vh;
+        min-height: 100vh;
+        width: 100%;
     }
+
+    .search{
+        padding: 10px 0px 10px 10px;
+        display: inline-block;
+        float: right;
+        margin-right: 100px;
+    }
+
+
+
+
 
 
 
@@ -66,14 +90,23 @@
         height: 50px;
         background: #66A5AD;
         margin-top: auto;
-        align-content: center;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        color: #003B46;
+        width: 100%;
+    }
+
+    footer p{
+        margin: 0;
     }
 </style>
 </head>
 <body>
-<div class="main">
-<header>
+<div class="wrapper">
 
+<header>
+<br><br>
     <a class="menu" href="/">
         <img src="https://c0.klipartz.com/pngpicture/761/296/gratis-png-tablon-de-anuncios-madera.png" height="45" width="90" hspace="10" vspace="10" align="center">
     </a>
@@ -105,29 +138,25 @@
         </ul>
 
     </nav>
-
+    <br><br>
 </header>
+
 <main>
     <section>
-        <form action=""  method="post" class="">
-
-            <div class="form-group">
-                <label for="formGroupExampleInput1">Введите наименование товара</label>
-                <input type="text"  class="form-control" id="formGroupExampleInput1" />
-            </div>
-            <br>
-
-            <button type="submit" class="btn btn-outline-dark">
-                Поиск
-            </button>
+        <form action=""  method="post" class="search">
+            <span style="margin-right: -30px"><i class="fa fa-search"></i></span>
+            <input class="form-control mr-sm-2" type="search"  aria-label="Search" placeholder=" &#128269 введите наименование товара" style=" display: inline-block;width:300px;  ">
+                    <button class="btn btn-outline-info" type="submit" style=" display: inline-block;  width:100px;">Поиск</button>
 
         </form>
+
+
     </section>
 </main>
 
 <footer class="footer">
-    <br>
-    <p align="center" >©Проект Женя&Надя, Минск 2021</p><br>
+
+    <p align="center" >©Проект Женя&Надя, Минск 2021</p>
 </footer>
 </div>
 </body>
