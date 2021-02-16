@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="style.css" type="text/css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0fafa;
+            width: 100vw;
+        }
+
+        nav{
+            display: block;
+            margin: 0 auto;
+        }
+
+        .menu ul {
+            padding: 0 0;
+            background: #C4DFE6;
+        }
+        .menu  a {
+            padding: 1em;
+            background: #C4DFE6;
+            border-right: 1px solid #66A5AD;
+            color: #07575B;
+            text-decoration: none;
+        }
+        .menu  a:hover {
+            background: #66A5AD;
+            text-decoration: none;}
+
+        .menu  li {
+            display: inline;
+        }
+
+        a{
+            line-height:70px;
+            text-decoration: none;
+            font-family: TimesNewRoman;
+            transition: .5s linear;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0 auto;
+        }
+
+
+        header {
+            display: flex;
+            align-items: center;
+            background: #C4DFE6;
+            width: 100%;
+            padding: 10px 10px 10px 10px;
+
+        }
+
+        div.wrapper{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+
+
+        .mainForm{
+            width: 800px;
+            padding-left: 100px;
+        }
+
+
+
+
+
+        .footer {
+            height: 50px;
+            background: #66A5AD;
+            margin-top: auto;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            color: #003B46;
+            width: 100%;
+        }
+
+        footer p{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <header>
+        <br><br>
+        <a class="menu" href="/">
+            <img src="https://c0.klipartz.com/pngpicture/761/296/gratis-png-tablon-de-anuncios-madera.png" height="45" width="90" hspace="10" vspace="10" align="center">
+        </a>
+
+        <h1>Store</h1>
+
+
+
+        <nav class="menu">
+            <ul class="menu">
+                <li class="menu">
+                    <a class="menu" href="">Главная</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="">Категории</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="" >Регистрация</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="" >Авторизация</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="">Профиль</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="">Мои объявления</a>
+                </li>
+            </ul>
+
+        </nav>
+        <br><br>
+    </header>
+
+    <main>
+        <section>
+            <form action=""  method="post" class="mainForm">
+                <div class="form-group">
+                    <label for="username">Введите ваш логин</label>
+                    <input type="text"  class="form-control" id="username" />
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="pass">Введите ваш пароль</label>
+                    <input type="text" class="form-control" id="pass"  />
+                </div>
+
+
+
+                <button type="submit" class="btn btn-outline-dark">
+                    Авторизироваться
+                </button>
+
+            </form>
+
+
+        </section>
+    </main>
+
+    <footer class="footer">
+
+        <p align="center" >©Проект Женя&Надя, Минск 2021</p>
+    </footer>
+</div>
+</body>
+</html>
