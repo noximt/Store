@@ -33,7 +33,8 @@ public class AuthorizationController {
         if (byUsername.isBool()){
             User user = byUsername.getElement();
             if (user.getPassword().equals(userAuthDto.getPassword())){
-                modelAndView.setViewName("/profile");
+                session.setAttribute("loggedUser", user);
+                modelAndView.setViewName("redirect:/profile");
             }else {
                 //отображение проблемы связанной с паролем на странице авторизации
                 //

@@ -124,8 +124,11 @@ public class UserDao {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
             PreparedStatement preparedStatement1 = connection.prepareStatement("delete from users where id = ?");
+            PreparedStatement preparedStatement2 = connection.prepareStatement("delete from items where user_id = ?");
             preparedStatement1.setLong(1, id);
+            preparedStatement2.setLong(1, id);
             preparedStatement1.execute();
+            preparedStatement2.execute();
             connection.commit();
             connection.setAutoCommit(true);
         } catch (SQLException trowable) {
@@ -146,6 +149,14 @@ public class UserDao {
             PreparedStatement preparedStatement1 = connection.prepareStatement("delete from users where username = ?");
             preparedStatement1.setString(1, username);
             preparedStatement1.execute();
+            PreparedStatement preparedStatement2 = connection.prepareStatement("select id from users where username = ?");
+            preparedStatement2.setString(1, username);
+            ResultSet resultSet = preparedStatement2.executeQuery();
+            resultSet.next();
+            long user_id = resultSet.getLong(1);
+            PreparedStatement preparedStatement3 = connection.prepareStatement("delete from items where user_id = ?");
+            preparedStatement3.setLong(1 ,user_id);
+            preparedStatement3.execute();
             connection.commit();
             connection.setAutoCommit(true);
         } catch (SQLException trowable) {
