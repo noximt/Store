@@ -1,5 +1,5 @@
 package by.company.domains;
 
 public enum Role {
-    QUEST, USER, ADMIN
+    GUEST, USER, ADMIN
 }

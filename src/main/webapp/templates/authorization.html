@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Регистрация</title>
+    <title>Авторизация</title>
     <style>
         *{
             margin: 0;
@@ -115,16 +115,16 @@
         <nav class="menu">
             <ul class="menu">
                 <li class="menu">
-                    <a class="menu" href="">Главная</a>
+                    <a class="menu" href="/">Главная</a>
                 </li>
                 <li class="menu">
                     <a class="menu" href="">Категории</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="" >Регистрация</a>
+                    <a class="menu" href="/register" >Регистрация</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="" >Авторизация</a>
+                    <a class="menu" href="/authorize" >Авторизация</a>
                 </li>
                 <li class="menu">
                     <a class="menu" href="">Профиль</a>
@@ -140,16 +140,16 @@
 
     <main>
         <section>
-            <form action=""  method="post" class="mainForm">
+            <form action="/authorize" th:object="${user}"  method="post" class="mainForm">
                 <div class="form-group">
                     <label for="username">Введите ваш логин</label>
-                    <input type="text"  class="form-control" id="username" />
+                    <input type="text" th:field ="*{username}"  class="form-control" id="username" />
                 </div>
                 <br>
 
                 <div class="form-group">
                     <label for="pass">Введите ваш пароль</label>
-                    <input type="text" class="form-control" id="pass"  />
+                    <input type="text" th:field ="*{password}" class="form-control" id="pass"  />
                 </div>
 
 
