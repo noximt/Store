@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Регистрация</title>
+    <title>Авторизация</title>
     <style>
         *{
             margin: 0;
@@ -22,6 +22,10 @@
         nav{
             display: block;
             margin: 0 auto;
+        }
+
+        .menuImg{
+            padding-left: 10%;
         }
 
         .menu ul {
@@ -75,9 +79,17 @@
 
 
         .mainForm{
-            width: 800px;
+            width: 400px;
             padding-left: 100px;
         }
+
+        .center{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
 
 
 
@@ -104,18 +116,15 @@
 
     <header>
         <br><br>
-        <a class="menu" href="/">
-            <img src="https://c0.klipartz.com/pngpicture/761/296/gratis-png-tablon-de-anuncios-madera.png" height="45" width="90" hspace="10" vspace="10" align="center">
+        <a class="menuImg" href="/">
+            <img src="https://i.postimg.cc/tgLFT26b/logo.png" height="100" width="170" hspace="10" vspace="10" align="center"  />
         </a>
-
-        <h1>Store</h1>
-
 
 
         <nav class="menu">
             <ul class="menu">
                 <li class="menu">
-                    <a class="menu" href="">Главная</a>
+                    <a class="menu" href="/">Главная</a>
                 </li>
                 <li class="menu">
                     <a class="menu" href="">Категории</a>
@@ -130,7 +139,7 @@
                     <a class="menu" href="">Профиль</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="">Мои объявления</a>
+                    <a class="menu" href="" style="border: 0px">Мои объявления</a>
                 </li>
             </ul>
 
@@ -139,8 +148,9 @@
     </header>
 
     <main>
-        <section>
+        <section class="center">
             <form action=""  method="post" class="mainForm">
+                <br><br><br><br>
                 <div class="form-group">
                     <label for="username">Введите ваш логин</label>
                     <input type="text"  class="form-control" id="username" />
@@ -153,10 +163,11 @@
                 </div>
 
 
-
+                <div class="center">
                 <button type="submit" class="btn btn-outline-dark">
                     Авторизироваться
                 </button>
+                </div>
 
             </form>
 

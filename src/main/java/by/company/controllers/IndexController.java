@@ -11,7 +11,7 @@ public class IndexController {
 
     @GetMapping
     public ModelAndView mainPage(ModelAndView modelAndView) {
-        modelAndView.setViewName("index");
+        modelAndView.setViewName("profile");
         return modelAndView;
     }
 }
