@@ -24,6 +24,10 @@
             margin: 0 auto;
         }
 
+        .menuImg{
+            padding-left: 10%;
+        }
+
         .menu ul {
             padding: 0 0;
             background: #C4DFE6;
@@ -35,6 +39,7 @@
             color: #07575B;
             text-decoration: none;
         }
+
         .menu  a:hover {
             background: #66A5AD;
             text-decoration: none;}
@@ -107,12 +112,9 @@
 
     <header>
         <br><br>
-        <a class="menu" href="/">
-            <img src="https://c0.klipartz.com/pngpicture/761/296/gratis-png-tablon-de-anuncios-madera.png" height="45" width="90" hspace="10" vspace="10" align="center">
+        <a class="menuImg" href="/">
+            <img src="https://i.postimg.cc/tgLFT26b/logo.png" height="100" width="170" hspace="10" vspace="10" align="center"  />
         </a>
-
-        <h1>Store</h1>
-
 
 
         <nav class="menu">
@@ -133,7 +135,7 @@
                     <a class="menu" href="/profile">Профиль</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="">Мои объявления</a>
+                    <a class="menu" href="" style="border: 0px">Мои объявления</a>
                 </li>
             </ul>
 
@@ -144,8 +146,8 @@
     <main>
         <section>
             <form action=""  method="post" class="search">
-                <span style="margin-right: -30px"><i class="fa fa-search"></i></span>
-                <input class="form-control mr-sm-2" type="search" name="itemToBeFound"  aria-label="Search" placeholder=" &#128269 введите наименование товара" style=" display: inline-block;width:300px;  ">
+                <label for="search">Введите наименование товара</label>
+                <input class="form-control mr-sm-2" type="search"  aria-label="Search" placeholder=" &#128269 Товар, услуга" style=" display: inline-block;width:300px;" id="search" >
                 <button class="btn btn-outline-info" type="submit" style=" display: inline-block;  width:100px;">Поиск</button>
 
             </form>

@@ -1,10 +1,196 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="style.css" type="text/css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 <head>
     <meta charset="UTF-8">
-    <title>Profile</title>
+    <title>Профиль</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0fafa;
+            width: 100vw;
+        }
+
+        nav{
+            display: block;
+            margin: 0 auto;
+        }
+
+        .menuImg{
+            padding-left: 10%;
+        }
+
+        .menu ul {
+            padding: 0 0;
+            background: #C4DFE6;
+        }
+        .menu  a {
+            padding: 1em;
+            background: #C4DFE6;
+            border-right: 1px solid #66A5AD;
+            color: #07575B;
+            text-decoration: none;
+        }
+        .menu  a:hover {
+            background: #66A5AD;
+            text-decoration: none;}
+
+        .menu  li {
+            display: inline;
+        }
+
+        a{
+            line-height:70px;
+            text-decoration: none;
+            font-family: TimesNewRoman;
+            transition: .5s linear;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0 auto;
+        }
+
+
+        header {
+            display: flex;
+            align-items: center;
+            background: #C4DFE6;
+            width: 100%;
+            padding: 10px 10px 10px 10px;
+
+        }
+
+        div.wrapper{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+
+
+        .mainForm{
+            width: 400px;
+            padding-left: 100px;
+        }
+
+        .center{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+
+        .footer {
+            height: 50px;
+            background: #66A5AD;
+            margin-top: auto;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            color: #003B46;
+            width: 100%;
+        }
+
+        footer p{
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
+<div class="wrapper">
 
+    <header>
+        <br><br>
+        <a class="menuImg" href="/">
+            <img src="https://i.postimg.cc/tgLFT26b/logo.png" height="100" width="170" hspace="10" vspace="10" align="center"  />
+        </a>
+
+
+        <nav class="menu">
+            <ul class="menu">
+                <li class="menu">
+                    <a class="menu" href="/">Главная</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="">Категории</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="" >Регистрация</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="" >Авторизация</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="">Профиль</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="" style="border: 0px">Мои объявления</a>
+                </li>
+            </ul>
+
+        </nav>
+        <br><br>
+    </header>
+
+    <main>
+        <section class="center">
+
+            <form action=""  method="post" class="mainForm">
+                <br>
+                <div class="form-group">
+                    <label for="username">Мой логин</label>
+                    <input type="text"  class="form-control" id="username" readonly/>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="pass">Мой пароль</label>
+                    <input type="text" class="form-control" id="pass"  />
+                </div>
+
+
+                <div class="form-group">
+                    <label for="name">Моё имя</label>
+                    <input type="text" class="form-control" id="name" />
+                </div>
+                <br>
+
+
+                <div class="form-group">
+                    <label for="surname">Моя фамилия</label>
+                    <input type="text" class="form-control" id="surname"/>
+                </div>
+                <br>
+
+
+                <div class="center">
+                    <button type="submit" class="btn btn-outline-dark" >
+                        Изменить
+                    </button>
+                </div>
+
+            </form>
+
+
+        </section>
+    </main>
+
+    <footer class="footer">
+
+        <p align="center" >©Проект Женя&Надя, Минск 2021</p>
+    </footer>
+</div>
 </body>
 </html>

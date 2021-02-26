@@ -75,7 +75,7 @@ public class WebConfiguration implements WebMvcConfigurer, ApplicationContextAwa
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/pictures/**")
-                .addResourceLocations("file:///C:/Users/Женя/IdeaProjects/Store/src/main/webapp/templates/pictures/");
+        registry.addResourceHandler("/static/**")
+                .addResourceLocations("classpath:/static/images/");
     }
 }
