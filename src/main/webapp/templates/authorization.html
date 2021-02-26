@@ -150,6 +150,8 @@
     <main>
       
         <section class="center">
+
+            <form action="/authorize" th:object="${user}" method="post">
                 <div class="form-group">
                     <label for="username">Введите ваш логин</label>
                     <input type="text" th:field ="*{username}"  class="form-control" id="username" />
