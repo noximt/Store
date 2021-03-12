@@ -26,6 +26,7 @@ public class UserDao {
             preparedStatement.setString(4, user.getSurname());
             preparedStatement.setString(5, String.valueOf(user.getRole()));
             preparedStatement.execute();
+            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -40,6 +41,7 @@ public class UserDao {
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
             userById = prepareUser(resultSet);
+            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -55,6 +57,7 @@ public class UserDao {
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
             userByUsername = prepareUser(resultSet);
+            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -80,6 +83,7 @@ public class UserDao {
             while (resultSet.next()) {
                 users.add(prepareUser(resultSet));
             }
+            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -96,6 +100,7 @@ public class UserDao {
                     return true;
                 }
             }
+            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -112,6 +117,7 @@ public class UserDao {
                     return true;
                 }
             }
+            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -123,14 +129,12 @@ public class UserDao {
         try {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
-            PreparedStatement preparedStatement1 = connection.prepareStatement("delete from users where id = ?");
-            PreparedStatement preparedStatement2 = connection.prepareStatement("delete from items where user_id = ?");
-            preparedStatement1.setLong(1, id);
-            preparedStatement2.setLong(1, id);
-            preparedStatement1.execute();
-            preparedStatement2.execute();
+            PreparedStatement preparedStatement = connection.prepareStatement("delete from users where id = ?");
+            preparedStatement.setLong(1, id);
+            preparedStatement.execute();
             connection.commit();
             connection.setAutoCommit(true);
+            connection.close();
         } catch (SQLException trowable) {
             try {
                 connection.rollback();
@@ -146,19 +150,12 @@ public class UserDao {
         try {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
-            PreparedStatement preparedStatement1 = connection.prepareStatement("delete from users where username = ?");
-            preparedStatement1.setString(1, username);
-            preparedStatement1.execute();
-            PreparedStatement preparedStatement2 = connection.prepareStatement("select id from users where username = ?");
-            preparedStatement2.setString(1, username);
-            ResultSet resultSet = preparedStatement2.executeQuery();
-            resultSet.next();
-            long user_id = resultSet.getLong(1);
-            PreparedStatement preparedStatement3 = connection.prepareStatement("delete from items where user_id = ?");
-            preparedStatement3.setLong(1 ,user_id);
-            preparedStatement3.execute();
+            PreparedStatement preparedStatement = connection.prepareStatement("delete from users where username = ?");
+            preparedStatement.setString(1, username);
+            preparedStatement.execute();
             connection.commit();
             connection.setAutoCommit(true);
+            connection.close();
         } catch (SQLException trowable) {
             try {
                 connection.rollback();
@@ -176,6 +173,7 @@ public class UserDao {
             preparedStatement.setString(1, newPass);
             preparedStatement.setLong(2, id);
             preparedStatement.executeUpdate();
+            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -189,6 +187,7 @@ public class UserDao {
             preparedStatement.setString(1, newName);
             preparedStatement.setLong(2, id);
             preparedStatement.executeUpdate();
+            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -202,6 +201,7 @@ public class UserDao {
             preparedStatement.setString(1, newSurname);
             preparedStatement.setLong(2, id);
             preparedStatement.executeUpdate();
+            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

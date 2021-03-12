@@ -2,19 +2,29 @@ package by.company.services;
 
 import by.company.domains.Response;
 import by.company.domains.User;
+import by.company.repositories.ItemDao;
 import by.company.repositories.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
     @Autowired
     private UserDao userDao;
+    @Autowired
+    ItemDao itemDao;
 
     public Response<User> save(User user) {
+        User user1 = new User();
+        Optional<User> user2 = Optional.of(user1);
+
+
+
+
         if (userDao.contains(user.getUsername())) {
             return new Response<>(false, "User already exist", user);
         }
@@ -45,11 +55,11 @@ public class UserService {
         return new Response<>(false, "No such User");
     }
 
-    public Response<User> getAll(){
+    public Response<List<User>> getAll(){
         if (userDao.getAll().size() == 0){
             return new Response<>(false, " There is no users");
         }
-        return new Response(true, "Operation successful", userDao.getAll());
+        return new Response<>(true, "Operation successful", userDao.getAll());
     }
 
     public Response<User> remove(long id){
