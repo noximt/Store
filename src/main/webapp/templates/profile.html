@@ -77,17 +77,25 @@
         }
 
 
-
-        .mainForm{
-            width: 400px;
-            padding-left: 100px;
-        }
-
         .center{
             display: flex;
             align-items: center;
             justify-content: center;
         }
+
+        .text{
+            font-weight: bold;
+        }
+
+
+        .parent > div {
+            background: #f0fafa;
+            float: left;
+            width: 30%;
+            margin-right: 2%;
+        }
+
+
 
 
 
@@ -127,16 +135,19 @@
                     <a class="menu" href="">Категории</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="" >Регистрация</a>
+                    <a class="menu" href="/register" th:if="${session.loggedUser== null}" >Регистрация</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="" >Авторизация</a>
+                    <a class="menu" href="/authorize" th:if="${session.loggedUser== null}">Авторизация</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="">Профиль</a>
+                    <a class="menu" href="/profile"  th:if="${session.loggedUser!= null}">Профиль</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="" style="border: 0px">Мои объявления</a>
+                    <a class="menu" href="/profile/myItems" th:if="${session.loggedUser!= null}">Мои объявления</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="/profile/logout" style="border: 0px" th:if="${session.loggedUser!= null}">Выйти</a>
                 </li>
             </ul>
 
@@ -145,34 +156,39 @@
     </header>
 
     <main>
-        <section class="center">
 
-            <form action=""  method="post" class="mainForm">
+        <div class="parent">
+        <div style="padding-left: 50px; padding-top: 25px">
+            <img src="https://it-workings.ru/wp-content/uploads/2019/08/blank-avatar.jpg" height="300" width="300" hspace="10" vspace="10"  />
+        </div>
+        <div>
+
+
+            <form action="/profile/edit"  method="post"  >
                 <br>
                 <div class="form-group">
-                    <label for="username">Мой логин</label>
-                    <input type="text"  class="form-control" id="username" readonly/>
+                    <label class="text">Мой логин:</label>
+                    <label  th:text="*{session.loggedUser.username}"></label>
                 </div>
                 <br>
 
                 <div class="form-group">
-                    <label for="pass">Мой пароль</label>
-                    <input type="text" class="form-control" id="pass"  />
+                    <label class="text">Мой пароль:</label>
+                    <label  th:text="*{session.loggedUser.password}"></label>
                 </div>
-
+                <br>
 
                 <div class="form-group">
-                    <label for="name">Моё имя</label>
-                    <input type="text" class="form-control" id="name" />
+                    <label class="text">Моё имя:</label>
+                    <label  th:text="*{session.loggedUser.name}"></label>
                 </div>
                 <br>
 
 
                 <div class="form-group">
-                    <label for="surname">Моя фамилия</label>
-                    <input type="text" class="form-control" id="surname"/>
+                    <label class="text">Моя фамилия:</label>
+                    <label  th:text="${session.loggedUser.surname}"></label>
                 </div>
-                <br>
 
 
                 <div class="center">
@@ -184,7 +200,17 @@
             </form>
 
 
-        </section>
+        </div>
+
+
+            <form class="center" action="/profile/myItems">
+                <br><br><br><br>
+                <button type="submit" class="btn btn-outline-dark" >
+                    Мои объявления
+                </button>
+            </form>
+
+        </div>
     </main>
 
     <footer class="footer">

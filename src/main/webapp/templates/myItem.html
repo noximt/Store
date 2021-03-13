@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Авторизация</title>
+    <title>Мои объявления</title>
     <style>
         *{
             margin: 0;
@@ -39,6 +39,7 @@
             color: #07575B;
             text-decoration: none;
         }
+
         .menu  a:hover {
             background: #66A5AD;
             text-decoration: none;}
@@ -76,18 +77,13 @@
             width: 100%;
         }
 
-
-
-        .mainForm{
-            width: 400px;
-            padding-left: 100px;
+        .search{
+            padding: 10px 0px 10px 10px;
+            display: inline-block;
+            float: right;
+            margin-right: 100px;
         }
 
-        .center{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
 
 
 
@@ -130,16 +126,16 @@
                     <a class="menu" href="">Категории</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="/register" th:if="${session.loggedUser== null}">Регистрация</a>
+                    <a class="menu" href="/register" th:if="${session.loggedUser==null}">Регистрация</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="/authorize" style="border: 0px" th:if="${session.loggedUser== null}">Авторизация</a>
+                    <a class="menu" href="/authorize"  style="border: 0px" th:if="${session.loggedUser==null}">Авторизация</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="/profile" th:if="${session.loggedUser!= null}">Профиль</a>
+                    <a class="menu" href="/profile" th:if="${session.loggedUser!=null}">Профиль</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="/profile/myItems"   th:if="${session.loggedUser!= null}">Мои объявления</a>
+                    <a class="menu" href="/profile/myItems"   th:if="${session.loggedUser!=null}">Мои объявления</a>
                 </li>
                 <li class="menu">
                     <a class="menu" href="/profile/logout" th:if="${session.loggedUser!= null}">Выйти</a>
@@ -151,33 +147,24 @@
     </header>
 
     <main>
-      
-        <section class="center">
+        <section>
+            <form action="/item/newItems"  method="post" class="search">
+                <label>Добро пожаловать,</label>
+                <label  th:text="*{session.loggedUser.name+session.loggedUser.surname}"></label>
+                    <button type="submit" class="btn btn-outline-dark" >
+                        Создать объявление
+                    </button>
 
-            <form action="/authorize" th:object="${user}" method="post" class="mainForm">
-                <br><br>
-                <div class="form-group">
-                    <label for="username">Введите ваш логин</label>
-                    <input type="text" th:field ="*{username}"  class="form-control" id="username" />
-                </div>
-                <br>
-
-                <div class="form-group">
-                    <label for="pass">Введите ваш пароль</label>
-                    <input type="text" th:field ="*{password}" class="form-control" id="pass"  />
-                </div>
-
-
-                <div class="center">
-                <button type="submit" class="btn btn-outline-dark">
-                    Авторизироваться
-                </button>
-                </div>
 
             </form>
-
-
         </section>
+        <br><br>
+        <div>
+            <h1 align="center">Мои объявления:</h1>
+            <form action=""  method="post" class="search">
+
+            </form>
+        </div>
     </main>
 
     <footer class="footer">

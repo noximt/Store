@@ -126,16 +126,19 @@
                     <a class="menu" href="">Категории</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="/register" >Регистрация</a>
+                    <a class="menu" href="/register" th:if="${session.loggedUser==null}">Регистрация</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="/authorize" >Авторизация</a>
+                    <a class="menu" href="/authorize"  style="border: 0px" th:if="${session.loggedUser==null}">Авторизация</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="/profile">Профиль</a>
+                    <a class="menu" href="/profile" th:if="${session.loggedUser!=null}">Профиль</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="" style="border: 0px">Мои объявления</a>
+                    <a class="menu" href="/profile/myItems"   th:if="${session.loggedUser!=null}">Мои объявления</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="/profile/logout" th:if="${session.loggedUser!= null}">Выйти</a>
                 </li>
             </ul>
 
@@ -145,7 +148,7 @@
 
     <main>
         <section>
-            <form action=""  method="post" class="search">
+            <form action="/"  method="post" class="search">
                 <label for="search">Введите наименование товара</label>
                 <input class="form-control mr-sm-2" type="search"  aria-label="Search" placeholder=" &#128269 Товар, услуга" style=" display: inline-block;width:300px;" id="search" >
                 <button class="btn btn-outline-info" type="submit" style=" display: inline-block;  width:100px;">Поиск</button>

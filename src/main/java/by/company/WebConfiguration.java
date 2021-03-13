@@ -64,7 +64,7 @@ public class WebConfiguration implements WebMvcConfigurer, ApplicationContextAwa
         driver.setDriverClassName("org.postgresql.Driver");
         driver.setUrl("jdbc:postgresql://localhost:5432/store");
         driver.setUsername("postgres");
-        driver.setPassword("root");
+        driver.setPassword("TMS8");
         return driver;
     }
 
