@@ -19,6 +19,7 @@ import javax.validation.Valid;
 @RequestMapping(path = "/profile")
 public class UserController {
     @Autowired
+
     UserService userService;
 
     @GetMapping
@@ -53,6 +54,11 @@ public class UserController {
         }
         return modelAndView;
     }
+  
+    @GetMapping(path = "/myItems")
+    public ModelAndView showMyItems(ModelAndView modelAndView, HttpSession httpSession) {
+        modelAndView.setViewName("myItem");
+        return modelAndView;
 
     private void ifNotEdited(UserDto userDto, User loggedUser) {
         if (userDto.getName().equals("")){

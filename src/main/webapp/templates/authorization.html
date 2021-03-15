@@ -130,16 +130,19 @@
                     <a class="menu" href="">Категории</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="/register" >Регистрация</a>
+                    <a class="menu" href="/register" th:if="${session.loggedUser== null}">Регистрация</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="/authorize" >Авторизация</a>
+                    <a class="menu" href="/authorize" style="border: 0px" th:if="${session.loggedUser== null}">Авторизация</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="/profile">Профиль</a>
+                    <a class="menu" href="/profile" th:if="${session.loggedUser!= null}">Профиль</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="" style="border: 0px">Мои объявления</a>
+                    <a class="menu" href="/profile/myItems"   th:if="${session.loggedUser!= null}">Мои объявления</a>
+                </li>
+                <li class="menu">
+                    <a class="menu" href="/profile/logout" th:if="${session.loggedUser!= null}">Выйти</a>
                 </li>
             </ul>
 
@@ -151,7 +154,9 @@
       
         <section class="center">
 
-            <form action="/authorize" th:object="${user}" method="post">
+            <form action="/authorize" th:object="${user}" method="post" class="mainForm">
+                <br><br>
+
                 <div class="form-group">
                     <label for="username">Введите ваш логин</label>
                     <input type="text" th:field ="*{username}"  class="form-control" id="username" />
