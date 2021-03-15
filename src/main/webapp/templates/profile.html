@@ -158,52 +158,53 @@
     <main>
 
         <div class="parent">
-        <div style="padding-left: 50px; padding-top: 25px">
-            <img src="https://it-workings.ru/wp-content/uploads/2019/08/blank-avatar.jpg" height="300" width="300" hspace="10" vspace="10"  />
-        </div>
-        <div>
+            <div style="padding-left: 50px; padding-top: 25px">
+                <img src="https://it-workings.ru/wp-content/uploads/2019/08/blank-avatar.jpg" height="300" width="300" hspace="10" vspace="10"  />
+            </div>
+            <div>
 
 
-            <form action="/profile/edit"  method="post"  >
-                <br>
-                <div class="form-group">
-                    <label class="text">Мой логин:</label>
-                    <label  th:text="*{session.loggedUser.username}"></label>
-                </div>
-                <br>
+                <form action="/profile/edit"  method="get"  >
+                    <br>
+                    <div class="form-group">
+                        <label class="text">Мой логин:</label>
+                        <label  th:text="*{session.loggedUser.username}"></label>
+                    </div>
+                    <br>
 
-                <div class="form-group">
-                    <label class="text">Мой пароль:</label>
-                    <label  th:text="*{session.loggedUser.password}"></label>
-                </div>
-                <br>
+                    <div class="form-group">
+                        <label class="text">Мой пароль:</label>
+                        <label  th:text="*{session.loggedUser.password}"></label>
+                    </div>
+                    <br>
 
-                <div class="form-group">
-                    <label class="text">Моё имя:</label>
-                    <label  th:text="*{session.loggedUser.name}"></label>
-                </div>
-                <br>
-
-
-                <div class="form-group">
-                    <label class="text">Моя фамилия:</label>
-                    <label  th:text="${session.loggedUser.surname}"></label>
-                </div>
+                    <div class="form-group">
+                        <label class="text">Моё имя:</label>
+                        <label  th:text="*{session.loggedUser.name}"></label>
+                    </div>
+                    <br>
 
 
-                <div class="center">
-                    <button type="submit" class="btn btn-outline-dark" >
-                        Изменить
-                    </button>
-                </div>
+                    <div class="form-group">
+                        <label class="text">Моя фамилия:</label>
+                        <label  th:text="${session.loggedUser.surname}"></label>
+                    </div>
 
-            </form>
+
+                    <div class="center">
+                        <button type="submit" class="btn btn-outline-dark" >
+                            Изменить
+                        </button>
+                    </div>
+
+                </form>
 
 
         </div>
 
 
             <form class="center" action="/profile/myItems">
+
                 <br><br><br><br>
                 <button type="submit" class="btn btn-outline-dark" >
                     Мои объявления

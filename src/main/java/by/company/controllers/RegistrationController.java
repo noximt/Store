@@ -1,10 +1,9 @@
 package by.company.controllers;
 
 
-import by.company.DTOs.UserRegDto;
+import by.company.DTOs.UserDto;
 import by.company.domains.Role;
 import by.company.domains.User;
-import by.company.repositories.UserDao;
 import by.company.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,12 +20,12 @@ public class RegistrationController {
     @GetMapping
     public ModelAndView getRegistrationPage(ModelAndView modelAndView) {
         modelAndView.setViewName("registration");
-        modelAndView.addObject("user", new UserRegDto());
+        modelAndView.addObject("user", new UserDto());
         return modelAndView;
     }
 
     @PostMapping
-    public ModelAndView saveToDB(@ModelAttribute("user") UserRegDto userDTO, ModelAndView modelAndView) {
+    public ModelAndView saveToDB(@ModelAttribute("user") UserDto userDTO, ModelAndView modelAndView) {
         modelAndView.setViewName("redirect:/");
         userService.save(new User(userDTO.getUsername(), userDTO.getPassword(), userDTO.getName(), userDTO.getSurname(), Role.USER));
         return modelAndView;

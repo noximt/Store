@@ -18,11 +18,12 @@ public class IndexController {
     }
 
     @PostMapping
-    public ModelAndView search(ModelAndView modelAndView, @RequestParam String itemToBeFound){
-        modelAndView.setViewName("index");
-        if (itemToBeFound.equals("test")){
-            modelAndView.setViewName("redirect:/authorize");
+    public ModelAndView search(ModelAndView modelAndView, @RequestParam(defaultValue = "null") String itemToBeFound){
+        if (itemToBeFound.equals("null")){
+            modelAndView.setViewName("index");
+            return modelAndView;
         }
+        modelAndView.setViewName("index");
         return modelAndView;
     }
 }

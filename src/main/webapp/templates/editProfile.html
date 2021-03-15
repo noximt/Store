@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="style.css" type="text/css" rel="stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -8,7 +9,7 @@
     <meta charset="UTF-8">
     <title>Редактирование</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -19,12 +20,15 @@
             width: 100vw;
         }
 
-        nav{
+
+
+        nav {
             display: block;
             margin: 0 auto;
         }
 
-        .menuImg{
+
+        .menuImg {
             padding-left: 10%;
         }
 
@@ -32,23 +36,28 @@
             padding: 0 0;
             background: #C4DFE6;
         }
-        .menu  a {
+
+
+        .menu a {
             padding: 1em;
             background: #C4DFE6;
             border-right: 1px solid #66A5AD;
             color: #07575B;
             text-decoration: none;
         }
-        .menu  a:hover {
-            background: #66A5AD;
-            text-decoration: none;}
 
-        .menu  li {
+
+        .menu a:hover {
+            background: #66A5AD;
+            text-decoration: none;
+        }
+
+        .menu li {
             display: inline;
         }
 
-        a{
-            line-height:70px;
+        a {
+            line-height: 70px;
             text-decoration: none;
             font-family: TimesNewRoman;
             transition: .5s linear;
@@ -69,19 +78,22 @@
 
         }
 
-        div.wrapper{
+
+        div.wrapper {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             width: 100%;
         }
 
-        .mainForm{
+
+        .mainForm {
             width: 400px;
             padding-left: 100px;
         }
 
-        .center{
+
+        .center {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -98,6 +110,8 @@
 
 
 
+
+
         .footer {
             height: 50px;
             background: #66A5AD;
@@ -109,7 +123,8 @@
             width: 100%;
         }
 
-        footer p{
+
+        footer p {
             margin: 0;
         }
     </style>
@@ -121,6 +136,7 @@
         <br><br>
         <a class="menuImg" href="/">
             <img src="https://i.postimg.cc/tgLFT26b/logo.png" height="100" width="170" hspace="10" vspace="10" align="center"  />
+
         </a>
 
 
@@ -133,16 +149,17 @@
                     <a class="menu" href="">Категории</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="/register" th:if="${session.loggedUser== null}" >Регистрация</a>
+
+                    <a class="menu" href="/register" th:if="${session.loggedUser == null}">Регистрация</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="/authorize" th:if="${session.loggedUser== null}">Авторизация</a>
+                    <a class="menu" href="/authorize" th:if="${session.loggedUser == null}">Авторизация</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="/profile"  th:if="${session.loggedUser!= null}">Профиль</a>
+                    <a class="menu" href="/profile" th:if="${session.loggedUser!= null}">Профиль</a>
                 </li>
                 <li class="menu">
-                    <a class="menu" href="/profile/myItems"  th:if="${session.loggedUser!= null}">Мои объявления</a>
+                    <a class="menu" href="" th:if="${session.loggedUser!= null}">Мои объявления</a>
                 </li>
                 <li class="menu">
                     <a class="menu" href="/profile/logout" style="border: 0px" th:if="${session.loggedUser!= null}">Выйти</a>
@@ -158,40 +175,35 @@
 
         <div class="parent">
             <div style="padding-left: 50px; padding-top: 25px">
-                <img src="https://it-workings.ru/wp-content/uploads/2019/08/blank-avatar.jpg" height="300" width="300" hspace="10" vspace="10"  />
+
+                <img src="https://it-workings.ru/wp-content/uploads/2019/08/blank-avatar.jpg" height="300" width="300"
+                     hspace="10" vspace="10"/>
             </div>
             <div>
-
-                <form action="/profile/save"  method="post"  class="mainForm" th:object="${editUser}" >
-                    <br> <input type="hidden"  class="form-control" id="id" th:field="*{id}" />
-                    <div class="form-group">
-                        <label for="username">Мой логин</label>
-                        <input type="text"  class="form-control" id="username" th:field="*{username}" readonly/>
-                    </div>
-                    <br>
-
+                <form action="/profile/submitEdit" method="post" class="mainForm" th:object="${editUser}">
                     <div class="form-group">
                         <label for="pass">Мой пароль</label>
-                        <input type="text" class="form-control" id="pass"  th:field="*{password}" />
+                        <input type="text" class="form-control" th:field ="*{password}" id="pass" th:placeholder="${session.loggedUser.password}"/>
                     </div>
 
 
                     <div class="form-group">
                         <label for="name">Моё имя</label>
-                        <input type="text" class="form-control" id="name" th:field="*{name}" />
+
+                        <input type="text" class="form-control" th:field ="*{name}" id="name" th:placeholder="${session.loggedUser.name}"/>
                     </div>
                     <br>
 
 
                     <div class="form-group">
                         <label for="surname">Моя фамилия</label>
-                        <input type="text" class="form-control" id="surname"  th:field="*{surname}"/>
+                        <input type="text" class="form-control" th:field ="*{surname}" id="surname" th:placeholder="${session.loggedUser.surname}"/>
                     </div>
                     <br>
 
 
                     <div class="center">
-                        <button type="submit" class="btn btn-outline-dark" >
+                        <button type="submit" class="btn btn-outline-dark">
                             Сохранить
                         </button>
                     </div>
@@ -205,11 +217,12 @@
 
 
 
+
     </main>
 
     <footer class="footer">
 
-        <p align="center" >©Проект Женя&Надя, Минск 2021</p>
+        <p align="center">©Проект Женя&Надя, Минск 2021</p>
     </footer>
 </div>
 </body>
